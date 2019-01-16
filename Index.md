@@ -82,12 +82,22 @@ With the combined data, we can create heatmaps of viewed percentage of each offe
 
 As we can see, offer #2, offer #6, offer #7 and offer #9 have higher percentage of being viewed for almost all customer groups by any individual demographic characteristic(i.e. age alone, income alone or gender alone).
 
-The following heatmaps show the percentage of completed offers for each offer type by Customer Groups. Only offer #6 and offer #7 have obvious higher percentage of being completed for certain customer groups, namely age > 40, femail, income > 80000 and membership > 3 years. 
+The following heatmaps show the percentage of completed offers for each offer type by Customer Groups. Only offer #6 and offer #7 have obvious higher percentage of being completed for certain customer groups, namely age > 40, femail, income > 80000 and membership > 3 years.
 
-### 4.4 Customer groups that are least influenced by offers
-But the heapmaps cannot tell us given a customer group described by all 4 characteristics in the profile (e.g. age > 40 and male with income > 80000 and membership < 1 year), which offer has the highest rate of being viewed.
+### 4.4 Best responded offer for each customer group
+But the heapmaps cannot tell us given a customer group described by all 4 characteristics in the profile (e.g. age > 40 and male with income > 80000 and membership < 1 year), which offer has the highest rate of being viewed or completed.
 
-### 4.5 Best responded offer for each customer group
+We then generate a table with percentage of viewed offers and percentage of completed offers for each offer type for each customer group that can be described by all 4 characteristics in the customer profile. The table looks like this:
+
+With this table, for any given customer group, we can query for the percentage of viewed offers and percentage of completed offers for each offer type. Then we can choose which offer type is the best to sent to this customer group. It can be the offer type with the highest completed percentage or highest viewed percentage.
+
+For example, if we want to decide which offer to send to a female customer with age between 41 and 70, income between 50000 to 80000 and membership between 1 to 3 years, we can do the following query on the table.
+
+The result shows that offer #7 is the best for this customer, because offer #7  has the highest completed percentage and second highest viewed percentage for this particular customer group.  
+### 4.5 Customer groups that are least influenced by offers
+We would also like to find out which customer groups are less influence by the offers. These are the customers who will likely to make purchases even without any offers.
+
+From the raw Transcript.json data, we select the activities that are actual purchases(event == transaction). For each purchase record, we identify whether it is influenced by an offer or not. This is done by matching the time stamp of the purchase activity with the offer valid period. If the time of the purchase activity is within an offer's valid period and this offer has been viewed by the same customer, then we assume this purchase is influenced by the offer.
 
 ## 5. Results
 
