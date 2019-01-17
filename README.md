@@ -42,6 +42,7 @@ To run the notebook Starbucks_Capstone_notebook.ipynb, the following Python pack
 6. json
 7. datatime
 8. time
-
-### 6 Blog
+### 6 Repository 
+The link to the repository: https://github.com/cr8zysheila/Starbucks
+### 7 Blog
 The blog presenting this analysis can be found at (https://cr8zysheila.github.io/Starbucks/).
